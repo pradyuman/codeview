@@ -51,5 +51,6 @@ h1 {
 	margin-bottom:30px;
 }
 
-.contentContainer {
+#bottomContainer {
+	width:100%;
 }
