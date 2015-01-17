@@ -52,7 +52,6 @@ h1 {
 	margin-bottom:30px;
 }
 
-.acehood {
-  height: 100%;
-  width: 100%;
+.ace_editor {
+  height: 200px;
 }
