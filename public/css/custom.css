@@ -211,3 +211,8 @@ hr.small {
 footer {
     padding: 100px 0;
 }
+
+.ace_editor {
+  height: 200px;
+  font-size: 12px;
+}
