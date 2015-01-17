@@ -93,7 +93,7 @@ function joinmox(sesskey) {
         error: function(event) {
             //alert("error code: " + event.error_code + " message: " + event.error_message);    
             $("#container").html('');
-            getToken();
+            fb.remove();
         },
         end_meet: function(event) {
             //alert("Meet ended by host event");
