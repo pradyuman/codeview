@@ -20,18 +20,39 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 })
 
 .controller('CodeCtrl', function($scope, $stateParams, Room) {
-  var type = $stateParams.type || 'code';
+  var coder = ($stateParams.type || 'code') === 'code';
 
   $scope.aceOpts = {
     theme: 'monokai',
     mode: 'javascript',
     rendererOptions: {
       fontSize: 16
+    },
+    onLoad: function(e) {
+      e.$blockScrolling = Infinity;
     }
   };
 
+  $scope.code = '// Enter code here \n';
   $scope.data = {};
-  Room('test').$bindTo($scope, 'data');
+  var room = Room('test');
+  room.$loaded().then(function() {
+    $scope.data = room;
+    $scope.code = room.code;
+  });
+  room.$bindTo($scope, 'data');
+
+  if (coder) {
+    $scope.$watch('data', function() {
+      $scope.code = $scope.data.code;
+    });
+  } else {
+    $scope.$watch('code', function() {
+      if ($scope.code) {
+        $scope.data.code = $scope.code;
+      }
+    });
+  }
 
 })
 
