@@ -7,6 +7,7 @@ function randStr(){
 	return str;
 }
 
+var fb = new Firebase("https://resplendent-torch-635.firebaseio.com/moxtra");
 
 var client_id = "r0QI6GjJbaI";
 var client_secret = "kRKfGYmyDR0";
@@ -17,6 +18,18 @@ var hash = CryptoJS.HmacSHA256(client_id + unique_id + timestamp, client_secret)
 var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
 var signature = hashInBase64.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
 
+
+$(document).ready(function(){
+    fb.on("value", function(data) {
+        if(data.val() && data.val().key){
+            console.log("fb key ", data.val().key);
+            joinmox(data.val().key);
+        }else{
+            getToken();
+            console.log("starting new mox");
+        }
+    });
+});
 
 function getToken() {
 	var init_options = {
@@ -42,13 +55,15 @@ function startmox(access_token) {
         iframe: true,
         extension: { "show_dialogs": { "meet_invite": true } },
         tagid4iframe: "container",
-        iframewidth: (window.innerWidth-3)+"px",
+        iframewidth: (window.innerWidth-9)+"px",
         iframeheight: window.innerHeight+"px",
         access_token: access_token,
         start_meet: function(event) {
-            alert(event.session_key);
-        	$("#status").html("Key: " + event.session_key);
+            //alert(event.session_key);
+        	//$("#status").html("Key: " + event.session_key);
         	//console.log(event.session_key);
+
+            fb.set({ key: event.session_key });
             //alert("session key: " + event.session_key + " session id: " + event.session_id + " binder id: " + event.binder_id);
         },
         error: function(event) {
@@ -56,16 +71,20 @@ function startmox(access_token) {
         },
         end_meet: function(event) {
             //alert("Meet end event");
+            fb.remove();
         }
     };
     Moxtra.meet(options);
 }
 
-function joinmox() {
+function joinmox(sesskey) {
+    //$("#container").html('');
+    console.log("key ",sesskey);
     var options = {
-        session_key: prompt("Session Key:",""),
-        user_name: prompt("Name:",""),
-        iframewidth: (window.innerWidth-3)+"px",
+        session_key: sesskey,
+        user_name: "Anonymous",
+        tagid4iframe: "container",
+        iframewidth: (window.innerWidth-9)+"px",
         iframeheight: window.innerHeight+"px",
         iframe: true,
         extension: { "show_dialogs": { "meet_invite": true } },
@@ -73,7 +92,9 @@ function joinmox() {
             //alert("session key: " + event.session_key + " session id: " + event.session_id);
         },
         error: function(event) {
-            //alert("error code: " + event.error_code + " message: " + event.error_message);
+            //alert("error code: " + event.error_code + " message: " + event.error_message);    
+            $("#container").html('');
+            getToken();
         },
         end_meet: function(event) {
             //alert("Meet ended by host event");
