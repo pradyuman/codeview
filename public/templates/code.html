@@ -1,22 +1,12 @@
-<html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-<script src="https://cdn.firebase.com/js/client/2.1.0/firebase.js"></script>
-<script src="https://cdn.firebase.com/libs/angularfire/0.9.1/angularfire.min.js"></script>
-</head>
-<body>
-  <h2>
-  <textarea ng-model="code"></textarea>
-  </h2>
-  <div id = "code">
-    <div class = "code" ng-repeat = "Type here!">
-    <span>{{code.body}}</span>
-    </div>
-  </div>
-  <div id="textWrap">
-    <textarea ng-model="newcode" ng-keydown="addcode($event)"></textarea>
-  </div>
-</body>
-</html>
-
+<h2>
+<textarea ng-model="code"></textarea>
+</h2>
+<div id = "code">
+<div class = "code" ng-repeat = "Type here!">
+<span>{{code.body}}</span>
+</div>
+</div>
+<div id="textWrap">
+<textarea ng-model="newcode" ng-keydown="addcode($event)"></textarea>
+</div>
 
