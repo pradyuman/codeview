@@ -25,4 +25,20 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   var type = $stateParams.type || 'code';
   var syncObject = sync.$asObject();
   syncObject.$bindTo($scope, 'data');
+  $scope.data = 'test';
+
+  $scope.aceOpts = {
+    theme: 'monokai',
+    mode: 'javascript',
+    rendererOptions: {
+      fontSize: 16
+    }
+  };
+
+  $scope.aceLoaded = function(editor) {
+    editor.setReadOnly(true);
+    console.log(editor);
+    editor.setFontSize(12);
+  };
+
 });
