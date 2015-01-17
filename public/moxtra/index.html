@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+ 
+        <!-- Include Moxtra JavaScript Library -->
+        <script type="text/javascript" src="https://www.moxtra.com/api/js/moxtra-latest.js" id="moxtrajs" data-client-id="r0QI6GjJbaI"></script>
+        <style>
+        * {
+            margin:0; 
+            padding:0; 
+        }
+
+        html, body { 
+            width:100%; 
+            height:100%; 
+        }
+
+        </style>
+        <!-- Include External JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha256.js"></script>
+        <script src="https://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/enc-base64-min.js"></script>
+
+        <script src="mox.js"></script>
+    </head>
+    <body>
+        <div id="container">
+        </div>
+        <a onClick="getToken()" href="#">Start New Meet</a>
+        <a onClick="joinmox()" href="#">Join Meet</a>
+        <div id="status"></div>
+    </body>
+</html>
