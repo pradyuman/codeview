@@ -7,7 +7,7 @@ h1 {
 }
 
 #topContainer {
-	background-image:url("/images/StockPhoto.jpg");
+	background-image:url("images/StockPhoto.jpg");
 	width:100%;
 	background-size:cover;
 }
