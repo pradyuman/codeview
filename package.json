@@ -2,7 +2,9 @@
   "name": "codeview",
   "description": "Crowdsourced coding interview practice and preparation",
   "version": "0.1.0",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.11.0"
+  },
   "author": "Ian Macalinao <me@ian.pw>",
   "repository": "simplyianm/codeview",
   "license": "MIT",
@@ -12,6 +14,7 @@
     "interview"
   ],
   "scripts": {
+    "start": "node server",
     "test": "./node_modules/.bin/mocha -R spec"
   },
   "devDependencies": {
