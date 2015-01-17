@@ -4,10 +4,21 @@ angular.module('codeview', ['ui.router'])
 
   $stateProvider.state('home', {
     url: '/',
-    templateUrl: 'templates/home.html'
+    templateUrl: 'templates/home.html',
+    controller: 'HomeCtrl'
+  }).state('code', {
+    url: '/code/:type',
+    templateUrl: 'templates/code.html',
+    controller: 'CodeCtrl'
   });
 
   $urlRouterProvider.otherwise('/');
-  $locationProvider.html5Mode(true);
+})
 
+.controller('HomeCtrl', function($scope) {
+  $scope.test = 'asdf';
+})
+
+.controller('CodeCtrl', function($scope, $stateParams) {
+  var type = $stateParams.type || 'code';
 });
