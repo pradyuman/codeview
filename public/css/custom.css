@@ -158,7 +158,7 @@ hr.small {
     display: table; 
     position: relative;
     width: 100%;
-	height:1200px;
+	height: 100vh;
     background: url(../images/bg.jpg) no-repeat center center scroll;
     webkit-background-size: cover;
     -moz-background-size: cover;
