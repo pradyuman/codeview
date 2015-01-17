@@ -19,10 +19,25 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   $scope.test = 'asdf';
 })
 
-.controller('CodeCtrl', function($scope, $stateParams, $firebase) {
-  var ref = new Firebase('https://codeview1.firebaseio.com/room');
-  var sync = $firebase(ref);
+.controller('CodeCtrl', function($scope, $stateParams, Room) {
   var type = $stateParams.type || 'code';
-  var syncObject = sync.$asObject();
-  syncObject.$bindTo($scope, 'data');
+
+  $scope.aceOpts = {
+    theme: 'monokai',
+    mode: 'javascript',
+    rendererOptions: {
+      fontSize: 16
+    }
+  };
+
+  $scope.data = {};
+  Room('test').$bindTo($scope, 'data');
+
+})
+
+.factory('Room', function($firebase) {
+  return function(room) {
+    var ref = new Firebase("https://codeview1.firebaseio.com/rooms/").child(room);
+    return $firebase(ref).$asObject();
+  }
 });

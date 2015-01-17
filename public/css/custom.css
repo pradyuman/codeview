@@ -74,7 +74,7 @@ hr.small {
     position: fixed;
     right: 0;
     width: 250px;
-    height: 100%;
+    height: 100vh;
     margin-right: -250px;
     overflow-y: auto;
     background: #222;
@@ -158,6 +158,7 @@ hr.small {
     display: table; 
     position: relative;
     width: 100%;
+	height: 100vh;
     background: url(../images/bg.jpg) no-repeat center center scroll;
     webkit-background-size: cover;
     -moz-background-size: cover;
