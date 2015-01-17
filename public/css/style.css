@@ -45,12 +45,9 @@ h1 {
 #footer {
 	background-color:#B0D1FB;
 	padding-top:70px;
+	width:100%;
 }
 
 .marginBottom {
 	margin-bottom:30px;
-}
-
-#bottomContainer {
-	width:100%;
 }
