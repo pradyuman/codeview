@@ -19,6 +19,8 @@ angular.module('codeview', ['ui.router', 'firebase'])
   $scope.test = 'asdf';
 })
 
-.controller('CodeCtrl', function($scope, $stateParams) {
+.controller('CodeCtrl', function($scope, $stateParams, $firebase) {
+  var ref = new Firebase('https://codeview1.firebaseio.com/rooms');
+  var sync = $firebase(ref);
   var type = $stateParams.type || 'code';
 });
