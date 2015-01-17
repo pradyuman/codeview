@@ -20,7 +20,9 @@ angular.module('codeview', ['ui.router', 'firebase'])
 })
 
 .controller('CodeCtrl', function($scope, $stateParams, $firebase) {
-  var ref = new Firebase('https://codeview1.firebaseio.com/rooms');
+  var ref = new Firebase('https://codeview1.firebaseio.com/room');
   var sync = $firebase(ref);
   var type = $stateParams.type || 'code';
+  var syncObject = sync.$asObject();
+  syncObject.$bindTo($scope, 'data');
 });
