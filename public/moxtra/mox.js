@@ -42,7 +42,6 @@ function getToken() {
 	        console.log("access_token " + result.access_token);
 	        console.log("access_token: " + result.access_token + " expires in: " + result.expires_in);
 	        startmox(result.access_token);
-            fb.set({ key: result.access_token });
 	    },
 	    error: function(result) {
 	        console.log("error code: " + result.error_code + " message: " + result.error_message);
@@ -63,6 +62,8 @@ function startmox(access_token) {
             //alert(event.session_key);
         	//$("#status").html("Key: " + event.session_key);
         	//console.log(event.session_key);
+
+            fb.set({ key: event.session_key });
             //alert("session key: " + event.session_key + " session id: " + event.session_id + " binder id: " + event.binder_id);
         },
         error: function(event) {
@@ -93,7 +94,7 @@ function joinmox(sesskey) {
         error: function(event) {
             //alert("error code: " + event.error_code + " message: " + event.error_message);    
             $("#container").html('');
-            fb.remove();
+            getToken();
         },
         end_meet: function(event) {
             //alert("Meet ended by host event");
