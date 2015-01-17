@@ -7,6 +7,7 @@ function randStr(){
 	return str;
 }
 
+var fb = new Firebase("https://resplendent-torch-635.firebaseio.com/moxtra");
 
 var client_id = "r0QI6GjJbaI";
 var client_secret = "kRKfGYmyDR0";
@@ -18,7 +19,20 @@ var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
 var signature = hashInBase64.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
 
 
+$(document).ready(function(){
+    fb.on("value", function(data) {
+        if(data.val() && data.val().key){
+            console.log("fb key ", data.val().key);
+            joinmox(data.val().key);
+        }else{
+            getToken();
+            console.log("starting new mox");
+        }
+    });
+});
+
 function getToken() {
+    $("#container").html('');
 	var init_options = {
 	    uniqueid: unique_id,
 	    firstname: "Anonymous",
@@ -29,6 +43,7 @@ function getToken() {
 	        console.log("access_token " + result.access_token);
 	        console.log("access_token: " + result.access_token + " expires in: " + result.expires_in);
 	        startmox(result.access_token);
+            fb.set({ key: result.access_token });
 	    },
 	    error: function(result) {
 	        console.log("error code: " + result.error_code + " message: " + result.error_message);
@@ -46,8 +61,8 @@ function startmox(access_token) {
         iframeheight: window.innerHeight+"px",
         access_token: access_token,
         start_meet: function(event) {
-            alert(event.session_key);
-        	$("#status").html("Key: " + event.session_key);
+            //alert(event.session_key);
+        	//$("#status").html("Key: " + event.session_key);
         	//console.log(event.session_key);
             //alert("session key: " + event.session_key + " session id: " + event.session_id + " binder id: " + event.binder_id);
         },
@@ -61,10 +76,13 @@ function startmox(access_token) {
     Moxtra.meet(options);
 }
 
-function joinmox() {
+function joinmox(sesskey) {
+    //$("#container").html('');
+    console.log("key ",sesskey);
     var options = {
-        session_key: prompt("Session Key:",""),
-        user_name: prompt("Name:",""),
+        session_key: sesskey,
+        user_name: "Anonymous",
+        tagid4iframe: "container",
         iframewidth: (window.innerWidth-3)+"px",
         iframeheight: window.innerHeight+"px",
         iframe: true,
@@ -74,6 +92,7 @@ function joinmox() {
         },
         error: function(event) {
             //alert("error code: " + event.error_code + " message: " + event.error_message);
+            getToken();
         },
         end_meet: function(event) {
             //alert("Meet ended by host event");
