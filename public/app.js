@@ -1,4 +1,4 @@
-angular.module('codeview', ['ui.router', 'firebase'])
+angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 
 .config(function($stateProvider, $locationProvider, $urlRouterProvider) {
 
