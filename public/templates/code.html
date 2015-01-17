@@ -1,12 +1,13 @@
-<h2>
+<h2>Code</h2>
+
 <textarea ng-model="code"></textarea>
+
 </h2>
-<div id = "code">
-<div class = "code" ng-repeat = "Type here!">
-<span>{{code.body}}</span>
-</div>
+<div id="code">
+  <div class="code" ng-repeat="Type here!">
+    <span>{{code.body}}</span>
+  </div>
 </div>
 <div id="textWrap">
-<textarea ng-model="newcode" ng-keydown="addcode($event)"></textarea>
+  <textarea ng-model="newcode" ng-keydown="addcode($event)"></textarea>
 </div>
-
