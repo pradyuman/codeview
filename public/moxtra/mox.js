@@ -32,7 +32,6 @@ $(document).ready(function(){
 });
 
 function getToken() {
-    $("#container").html('');
 	var init_options = {
 	    uniqueid: unique_id,
 	    firstname: "Anonymous",
@@ -57,7 +56,7 @@ function startmox(access_token) {
         iframe: true,
         extension: { "show_dialogs": { "meet_invite": true } },
         tagid4iframe: "container",
-        iframewidth: (window.innerWidth-3)+"px",
+        iframewidth: (window.innerWidth-9)+"px",
         iframeheight: window.innerHeight+"px",
         access_token: access_token,
         start_meet: function(event) {
@@ -71,6 +70,7 @@ function startmox(access_token) {
         },
         end_meet: function(event) {
             //alert("Meet end event");
+            fb.remove();
         }
     };
     Moxtra.meet(options);
@@ -83,7 +83,7 @@ function joinmox(sesskey) {
         session_key: sesskey,
         user_name: "Anonymous",
         tagid4iframe: "container",
-        iframewidth: (window.innerWidth-3)+"px",
+        iframewidth: (window.innerWidth-9)+"px",
         iframeheight: window.innerHeight+"px",
         iframe: true,
         extension: { "show_dialogs": { "meet_invite": true } },
@@ -91,7 +91,8 @@ function joinmox(sesskey) {
             //alert("session key: " + event.session_key + " session id: " + event.session_id);
         },
         error: function(event) {
-            //alert("error code: " + event.error_code + " message: " + event.error_message);
+            //alert("error code: " + event.error_code + " message: " + event.error_message);    
+            $("#container").html('');
             getToken();
         },
         end_meet: function(event) {
