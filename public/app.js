@@ -188,6 +188,9 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     });
     $scope.$watch('data', function() {
       $scope.theircode = $scope.data.code2;
+      if (!$scope.data.code) {
+        $scope.mycode = '';
+      }
     });
   } else {
     // Edit code 2 only
@@ -198,6 +201,9 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     });
     $scope.$watch('data', function() {
       $scope.theircode = $scope.data.code;
+      if (!$scope.data.code2) {
+        $scope.mycode = '';
+      }
     });
   }
 
