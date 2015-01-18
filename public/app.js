@@ -95,7 +95,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 		$(errortype).css("width", "240px");
 		$(errortype).css("height", "20px");
 		$(errortype).css("marginBottom", "10px");
-		$(errortype).css("padding", "5px 5px 5px 15px");
+		$(errortype).css("padding", "0px 5px 5px 15px");
 	}
 
 	function clearerror(errortype) {
