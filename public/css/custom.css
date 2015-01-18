@@ -283,3 +283,7 @@ footer {
     height: 75vh;
     overflow: none;
 }
+
+.col-md-5{
+    padding: 0;
+}
