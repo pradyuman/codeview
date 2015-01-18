@@ -31,6 +31,25 @@ body {
 
 /* Custom Button Styles */
 
+.btn-info {
+	border-radius:0;
+}
+
+#beInt {
+	position:relative;
+	left:-3px;
+}
+
+#beBoth {
+	position:relative;
+	left:4px;
+}
+
+#beLearn {
+	position:relative;
+	left:9.75px;
+}
+
 .btn-dark {
     border-radius: 0;
     color: #fff;
@@ -212,6 +231,11 @@ footer {
     padding: 100px 0;
 }
 
+/* Extra styles */
 .ace_editor {
   height: 200px;
+}
+
+.marginLeft {
+	margin-left:5px;
 }
