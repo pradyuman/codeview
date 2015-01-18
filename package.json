@@ -3,6 +3,7 @@
   "description": "Crowdsourced coding interview practice and preparation",
   "version": "0.1.0",
   "dependencies": {
+    "evalin": "^0.1.0",
     "express": "^4.11.0"
   },
   "author": "Ian Macalinao <me@ian.pw>",
