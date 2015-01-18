@@ -275,7 +275,7 @@ footer {
 }
 
 .fontBig {
-	font-size:150%;	
+	font-size:150%;
 }
 
 
@@ -286,4 +286,10 @@ footer {
 
 .col-md-5{
     padding: 0;
+}
+.homeButtons {
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
 }
