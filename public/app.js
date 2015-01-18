@@ -202,6 +202,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   }
 
   execute = function(code, person) {
+    $(".footer").slideDown(500);
     if (person)
       $scope.myoutput = 'Running program...';
     else
@@ -212,7 +213,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     }).
     success(function(data, status, headers, config) {
       var output = "";
-      if (data.error)
+      if (data.error || !data.output)
         output = data.error;
       else output = data.output + "\n" + data.status;
       console.log(data);
@@ -226,6 +227,13 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     });
   }
 
+  $scope.closeConsole = function() {
+    $(".footer").slideUp(500);
+  }
+
+
+    $(".footer").slideUp(0);
+
   $scope.execute1 = function() {
     execute($scope.mycode, true);
   }
@@ -234,12 +242,17 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     execute($scope.theircode, false);
   }
   $scope.startmoxtra = function() {
-    window.open("/moxtra/", "Voice Call", "width=600, height=500");
+    window.open("/moxtra/", "Voice Call", "width=300, height=500");
   }
 
   $scope.saved = function() {
     alert('Rating saved. Click a different rating to update it!');
   };
+
+  $scope.tip = function() {
+    var amount = prompt('Enter a tip amount: (Ex: 20.00)');
+    alert("$"+amount +" sent!");
+  }
 
   $scope.clear = function() {
     $scope.data = {

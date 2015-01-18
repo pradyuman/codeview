@@ -16,6 +16,7 @@
       <br/>
       <a href="/moxtra" class="btn btn-success" target="_blank">Start Conference Call</a>
 
+        <br/><br/>
       <div ng-if="!coder">
         <button class="btn btn-danger" ng-click="clear()">Reset Code</button>
         <h3>Rate</h3>
@@ -27,6 +28,7 @@
       <div ng-if="coder">
         <h3>Send a tip</h3>
         <p>Thank your interviewer for their time by sending them a tip, powered by CapitalOne!</p>
+        <a href="" class="btn btn-info" ng-click="tip()">Send a tip</a>
       </div>
     </div>
 
