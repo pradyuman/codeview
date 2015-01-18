@@ -48,7 +48,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 })
 
 .controller('CodeCtrl', function($scope, $stateParams, Room) {
-  var coder = $scope.coder = (($stateParams.type || 'code') === 'code');
+  var coder = $scope.coder = mycoder = (($stateParams.type || 'code') === 'code');
 
   $scope.aceOpts = {
     theme: 'monokai',
@@ -79,19 +79,28 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
         $scope.data.code = $scope.code;
       }
     });
-    $scope.$watch('code2', function() {
-      if ($scope.code2) {
-        $scope.data.code2 = $scope.code2;
-      }
+    $scope.$watch('data', function() {
+      $scope.code2 = $scope.data.code2;
     });
   } else {
     // Only read code
     $scope.$watch('data', function() {
       $scope.code = $scope.data.code;
-      $scope.code2 = $scope.data.code2;
+    });
+    $scope.$watch('code2', function() {
+      if ($scope.code2) {
+        $scope.data.code2 = $scope.code2;
+      }
     });
   }
 
+  $scope.execute = function() {
+    console.log($scope.code);
+  }
+
+  $scope.execute2 = function() {
+    console.log($scope.code2);
+  }
 })
 
 .factory('Room', function($firebase) {
@@ -100,3 +109,4 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     return $firebase(ref).$asObject();
   }
 });
+
