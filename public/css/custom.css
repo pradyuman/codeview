@@ -101,7 +101,19 @@ hr.small {
 #password {
 	margin-bottom:5px;
 	width:240px;
-	border-radius:-;
+	border-radius:0;
+}
+
+#erroremail {
+		margin-left:180px;
+		font-size:0.9em;
+		border-radius:5px;
+}
+
+#errorpassword {
+		margin-left:180px;
+		font-size:0.9em;
+		border-radius:5px;
 }
 
 #loginbutton {
