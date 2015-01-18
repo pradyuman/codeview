@@ -71,16 +71,16 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   room.$bindTo($scope, 'data');
 
   if (coder) {
-    // Only read code
-    $scope.$watch('data', function() {
-      $scope.code = $scope.data.code;
-    });
-  } else {
     // Allow editing code
     $scope.$watch('code', function() {
       if ($scope.code) {
         $scope.data.code = $scope.code;
       }
+    });
+  } else {
+    // Only read code
+    $scope.$watch('data', function() {
+      $scope.code = $scope.data.code;
     });
   }
 
