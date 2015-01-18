@@ -215,3 +215,7 @@ footer {
 .ace_editor {
   height: 200px;
 }
+
+.marginTop {
+	margin-top:10px;
+}
