@@ -105,7 +105,7 @@ hr.small {
 #password {
 	margin-bottom:5px;
 	width:240px;
-	border-radius:-;
+	border-radius:5px;
 }
 
 #loginbutton {
@@ -264,6 +264,7 @@ footer {
 	margin-left:5px;
 }
 
-.acebox {
-    height: 60%;
+.aceasdfbox {
+    height: 75vh;
+    overflow: none;
 }
