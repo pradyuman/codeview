@@ -136,24 +136,24 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   room.$bindTo($scope, 'data');
 
   if (coder) {
-    // Allow editing code
-    $scope.$watch('code', function() {
+    // Edit code only
+    $scope.$watch('mycode', function() {
       if ($scope.code) {
-        $scope.data.code = $scope.code;
+        $scope.data.code = $scope.mycode;
       }
     });
     $scope.$watch('data', function() {
-      $scope.code2 = $scope.data.code2;
+      $scope.theircode = $scope.data.code2;
     });
   } else {
-    // Only read code
-    $scope.$watch('data', function() {
-      $scope.code = $scope.data.code;
-    });
-    $scope.$watch('code2', function() {
+    // Edit code 2 only
+    $scope.$watch('mycode', function() {
       if ($scope.code2) {
-        $scope.data.code2 = $scope.code2;
+        $scope.data.code2 = $scope.mycode;
       }
+    });
+    $scope.$watch('data', function() {
+      $scope.theircode = $scope.data.code;
     });
   }
 
