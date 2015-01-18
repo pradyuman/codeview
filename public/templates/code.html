@@ -19,11 +19,12 @@
         <br/><br/>
       <div ng-if="!coder">
         <button class="btn btn-danger" ng-click="clear()">Reset Code</button>
-        <h3>Rate</h3>
-        <button class="btn btn-success" ng-click="saved()">Good</button>
-        <button class="btn btn-warning" ng-click="saved()">OK</button>
-        <button class="btn btn-danger" ng-click="saved()">Bad</button>
       </div>
+
+      <h3>Rate</h3>
+      <button class="btn btn-success" ng-click="saved()">Good</button>
+      <button class="btn btn-warning" ng-click="saved()">OK</button>
+      <button class="btn btn-danger" ng-click="saved()">Bad</button>
 
       <div ng-if="coder">
         <h3>Send a tip</h3>
