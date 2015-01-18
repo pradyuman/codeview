@@ -264,7 +264,6 @@ footer {
 
 /* Extra styles */
 .ace_editor {
-  height: 200px;
 }
 
 .marginLeft {
@@ -273,4 +272,10 @@ footer {
 
 .fontBig {
 	font-size:150%;	
+}
+
+
+.aceasdfbox {
+    height: 75vh;
+    overflow: none;
 }
