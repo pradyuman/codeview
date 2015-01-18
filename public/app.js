@@ -68,7 +68,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
       var mode = $scope.data.lang.id.split('/')[0];
       for (var i = 0; i < aces.length; i++) {
         var ace = aces[i];
-        ace.getSession().setMode('ace/' + mode.toLowerCase());
+        ace.getSession().setMode('ace/mode/' + mode.toLowerCase());
       }
     } catch (e) {
       console.log(e);
