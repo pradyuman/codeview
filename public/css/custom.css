@@ -105,15 +105,11 @@ hr.small {
 }
 
 #erroremail {
-		margin-left:180px;
-		font-size:0.9em;
-		border-radius:5px;
+	font-size:0.9em;
 }
 
 #errorpassword {
-		margin-left:180px;
-		font-size:0.9em;
-		border-radius:5px;
+	font-size:0.9em;
 }
 
 #loginbutton {
