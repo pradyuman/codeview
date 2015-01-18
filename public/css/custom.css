@@ -283,33 +283,6 @@ footer {
 	background:transparent;
 }
 
-.aceasdfbox {
-    height: 75vh;
-    overflow: none;
-}
-
-.col-md-5{
-    padding: 0;
-}
-.homeButtons {
-  -webkit-animation-duration: 2s;
-  -moz-animation-duration: 2s;
-  -o-animation-duration: 2s;
-  animation-duration: 2s;
-}
-
-.fixedfoot {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-    height: 20vh;
-   width:100%;
-   z-index:100;
-   padding: 0;
-   margin: 0;
-   background-color: #E6E6E6;
-}
-
-.console {
-    height: 20vh;
+#yourcode {
+	margin-left:5px;
 }
