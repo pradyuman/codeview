@@ -119,7 +119,14 @@ hr.small {
 #loginbutton {
 	position:relative;
 	top:-10px;
-	left:20px;
+	left:10px;
+	margin-left:60px;
+}
+
+#loginbuttoncode {
+	position:relative;
+	top:-5px;
+	left:0px;
 	margin-left:60px;
 }
 
