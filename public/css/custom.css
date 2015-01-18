@@ -16,10 +16,6 @@ body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.col-md-5 {
-    padding: 0;
-}
-
 .text-vertical-center {
     display: table-cell;
     text-align: center;
@@ -92,24 +88,35 @@ hr.small {
 
 /* Side Menu */
 
-#login {
+#validatedForm {
 	margin-top:250px;
 }
 
 #username {
 	margin-bottom:5px;
-	width:240px;
+	width:225px;
 	border-radius:0;
 }
 
 #password {
 	margin-bottom:5px;
-	width:240px;
-	border-radius:5px;
+	width:225px;
+	border-radius:0;
+}
+
+#erroremail {
+	font-size:1em;
+}
+
+#errorpassword {
+	font-size:1em;
 }
 
 #loginbutton {
-	margin-left:50px;
+	position:relative;
+	top:-10px;
+	left:10px;
+	margin-left:60px;
 }
 
 #sidebar-wrapper {
@@ -264,7 +271,6 @@ footer {
 	margin-left:5px;
 }
 
-.aceasdfbox {
-    height: 75vh;
-    overflow: none;
+.fontBig {
+	font-size:150%;	
 }
