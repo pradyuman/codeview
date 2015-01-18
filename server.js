@@ -1,5 +1,7 @@
 var express = require('express');
 var evalin = require('evalin');
+var session = require('express-session');
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/codeview');
 
@@ -12,6 +14,22 @@ var app = express();
 
 app.use(require('body-parser').json());
 app.use(express.static(__dirname + '/public'));
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// Middleware to store the user
+app.use(function(req, res, next) {
+  if (!req.session.login) return next();
+  User.findOne({
+    name: req.session.login
+  }, function(err, user) {
+    req.user = user;
+    next();
+  });
+});
 
 app.post('/execute', function(req, res) {
   var code = req.body.code;
@@ -78,6 +96,39 @@ app.get('/api/leaderboard', function(req, res) {
     name: 'tejasmanohar',
     elo: 1440
   }, ]);
+});
+
+// Login.
+app.post('/api/login', function(req, res) {
+  var login = req.body.login;
+  User.findOne({
+    name: login
+  }, function(err, user) {
+    if (!user) return res.status(401).json({
+      result: 'None'
+    });
+
+    req.session.login = req.body.login;
+    res.json({
+      result: 'Success'
+    });
+
+  });
+});
+
+// Register.
+// TODO add password encryption
+app.post('/api/register', function(req, res) {
+  var user = new User({
+    name: req.body.name,
+    password: req.body.password
+  });
+  req.session.login = user.name;
+  user.save(function() {
+    res.json({
+      result: 'Success'
+    });
+  });
 });
 
 var port = process.env.PORT || 3000;
