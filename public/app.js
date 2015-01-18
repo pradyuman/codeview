@@ -116,6 +116,12 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     console.log($scope.code2);
     execute($scope.code, $scope.langeval);
   }
+
+  $scope.langs = [];
+  $http.get('/langs').then(function(data) {
+    $scope.langs = data.data;
+    console.log($scope.langs);
+  });
 })
 
 .factory('Room', function($firebase) {

@@ -1,11 +1,12 @@
-
 <h2>Code</h2>
 
 <section>
   <div ui-ace="aceOpts" ng-model="code" ng-readonly="!coder"></div>
 </section>
 
-<select ng-options=""></select>
+<select ng-model="selectedLang" ng-options="lang.name for lang in langs track by lang.id">
+  <option value="">Select a language</option>
+</select>
 
 <section>
   <div ui-ace="aceOpts" ng-model="code2" ng-readonly="coder"></div>

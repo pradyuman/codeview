@@ -32,6 +32,10 @@ app.post('/execute', function(req, res) {
 
 });
 
+app.get('/langs', function(req, res) {
+  res.json(evalin.langs);
+});
+
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log('Listening on port', port);
