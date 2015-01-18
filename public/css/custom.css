@@ -90,7 +90,20 @@ hr.small {
 
 #login {
 	width:240px;
-	margin-top:400px;
+	margin-top:250px;
+	border-radius:0;
+}
+
+#username {
+	margin-bottom:5px;
+}
+
+#password {
+	margin-bottom:5px;
+}
+
+#loginbutton {
+	margin-left: 100px;
 }
 
 #sidebar-wrapper {
