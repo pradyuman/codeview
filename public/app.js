@@ -6,6 +6,10 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     url: '/',
     templateUrl: 'templates/home.html',
     controller: 'HomeCtrl'
+  }).state('find', {
+    url: '/find/:type',
+    templateUrl: 'templates/find.html',
+    controller: 'FindCtrl'
   }).state('code', {
     url: '/code/:type',
     templateUrl: 'templates/code.html',
@@ -94,6 +98,10 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   });
 })
 
+.controller('FindCtrl', function($scope, $stateParams) {
+  var type = $scope.type =  $stateParams.type;
+})
+
 .controller('CodeCtrl', function($scope, $stateParams, Room, $http) {
   var coder = $scope.coder = mycoder = (($stateParams.type || 'code') === 'code');
 
@@ -136,24 +144,24 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   room.$bindTo($scope, 'data');
 
   if (coder) {
-    // Allow editing code
-    $scope.$watch('code', function() {
+    // Edit code only
+    $scope.$watch('mycode', function() {
       if ($scope.code) {
-        $scope.data.code = $scope.code;
+        $scope.data.code = $scope.mycode;
       }
     });
     $scope.$watch('data', function() {
-      $scope.code2 = $scope.data.code2;
+      $scope.theircode = $scope.data.code2;
     });
   } else {
-    // Only read code
-    $scope.$watch('data', function() {
-      $scope.code = $scope.data.code;
-    });
-    $scope.$watch('code2', function() {
+    // Edit code 2 only
+    $scope.$watch('mycode', function() {
       if ($scope.code2) {
-        $scope.data.code2 = $scope.code2;
+        $scope.data.code2 = $scope.mycode;
       }
+    });
+    $scope.$watch('data', function() {
+      $scope.theircode = $scope.data.code;
     });
   }
 
@@ -171,11 +179,11 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   }
 
   $scope.execute1 = function() {
-    execute($scope.code);
+    execute($scope.mycode);
   }
 
   $scope.execute2 = function() {
-    execute($scope.code2);
+    execute($scope.theircode);
   }
   $scope.startmoxtra = function() {
     window.open("/moxtra/", "Voice Call", "width=600, height=500");
