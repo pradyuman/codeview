@@ -316,3 +316,7 @@ footer {
 .console {
     height: 20vh;
 }
+
+.bigFont {
+	font-size:150%;
+}
