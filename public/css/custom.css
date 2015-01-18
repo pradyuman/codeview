@@ -214,10 +214,10 @@ hr.small {
     width: 100%;
 	height: 100vh;
     background: url("images/bg.jpg");
-    webkit-background-size: cover;
-    -moz-background-size: cover;
+    /*webkit-background-size: cover;
+    -moz-background-size: cover;*/
     background-size: cover;
-    -o-background-size: cover;
+    /*-o-background-size: cover;*/
 }
 
 /* About */
