@@ -56,7 +56,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     theme: 'monokai',
     mode: 'javascript',
     rendererOptions: {
-      fontSize: 16
+      fontSize: 13
     },
     onLoad: function(e) {
       e.$blockScrolling = Infinity;
