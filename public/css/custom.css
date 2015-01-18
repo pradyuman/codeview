@@ -212,14 +212,19 @@ footer {
     padding: 100px 0;
 }
 
+/* Extra styles */
 .ace_editor {
   height: 200px;
 }
 
 .marginTop {
-	margin-top:10px;
+	margin-top:20px;
 }
 
 .marginLeft {
 	margin-left:5px;
+}
+
+.btn-info {
+	border-radius:0;
 }
