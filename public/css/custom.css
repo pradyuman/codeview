@@ -89,21 +89,23 @@ hr.small {
 /* Side Menu */
 
 #login {
-	width:240px;
 	margin-top:250px;
-	border-radius:0;
 }
 
 #username {
 	margin-bottom:5px;
+	width:240px;
+	border-radius:0;
 }
 
 #password {
 	margin-bottom:5px;
+	width:240px;
+	border-radius:-;
 }
 
 #loginbutton {
-	margin-left: 100px;
+	margin-left:50px;
 }
 
 #sidebar-wrapper {
