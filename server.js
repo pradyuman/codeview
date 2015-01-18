@@ -1,5 +1,12 @@
 var express = require('express');
 var evalin = require('evalin');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/codeview');
+
+var User = mongoose.model('User', new mongoose.Schema({
+  name: String,
+  password: String // yolo
+}));
 
 var app = express();
 
