@@ -55,7 +55,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   $scope.aceOpts = {
     theme: 'monokai',
     rendererOptions: {
-      fontSize: 16
+      fontSize: 13
     },
     onLoad: function(ace) {
       ace.$blockScrolling = Infinity;
