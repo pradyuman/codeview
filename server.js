@@ -6,8 +6,8 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 app.post('/execute', function(req, res) {
-  var code = req.data.code;
-  var lang = req.data.lang;
+  var code = req.body.code;
+  var lang = req.body.lang;
 
   if (!code) {
     return res.json({

@@ -47,8 +47,11 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   });
 })
 
-.controller('CodeCtrl', function($scope, $stateParams, Room) {
+.controller('CodeCtrl', function($scope, $stateParams, Room, $http) {
   var coder = $scope.coder = mycoder = (($stateParams.type || 'code') === 'code');
+
+  $scope.langace = 'javascript';
+  $scope.langeval = 'javascript/node-0.10.29';
 
   $scope.aceOpts = {
     theme: 'monokai',
@@ -94,12 +97,24 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     });
   }
 
-  $scope.execute = function() {
+  execute = function(code, lang) {
+    $http.post('/execute', {code:code, lang:lang, }).
+    success(function(data, status, headers, config) {
+      console.log(data);
+    }).
+    error(function(data, status, headers, config) {
+      console.log(data);
+    });
+  }
+
+  $scope.execute1 = function() {
     console.log($scope.code);
+    execute($scope.code, $scope.langeval);
   }
 
   $scope.execute2 = function() {
     console.log($scope.code2);
+    execute($scope.code, $scope.langeval);
   }
 })
 
