@@ -71,14 +71,14 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   room.$bindTo($scope, 'data');
 
   if (coder) {
-    $scope.$watch('data', function() {
-      $scope.code = $scope.data.code;
-    });
-  } else {
     $scope.$watch('code', function() {
       if ($scope.code) {
         $scope.data.code = $scope.code;
       }
+    });
+  } else {
+    $scope.$watch('data', function() {
+      $scope.code = $scope.data.code;
     });
   }
 
