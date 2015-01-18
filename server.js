@@ -98,6 +98,14 @@ app.get('/api/leaderboard', function(req, res) {
   }, ]);
 });
 
+// Login
+app.get('/api/user', function(req, res) {
+  if (req.user) return res.json(user);
+  return res.status(401).json({
+    error: 'Not logged in'
+  });
+});
+
 // Login.
 app.post('/api/login', function(req, res) {
   var login = req.body.login;
