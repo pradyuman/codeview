@@ -1,15 +1,36 @@
-<h2>Code</h2>
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CodeView</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Code</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<section>
-  <div ui-ace="aceOpts" ng-model="code" ng-readonly="!coder"></div>
-</section>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <h3>Language</h3>
+      <select class="form-control" ng-model="data.lang" ng-options="lang.name for lang in langs track by lang.id">
+        <option value="">Select a language</option>
+      </select>
 
-<select ng-model="data.lang" ng-options="lang.name for lang in langs track by lang.id">
-  <option value="">Select a language</option>
-</select>
+      <a href="" class="btn btn-primary" ng-click="execute1()">Execute Interviewer</a>
+      <a href="" class="btn btn-primary" ng-click="execute2()">Execute Candidate</a>
+    </div>
+    <div class="col-md-10">
+      <h2>Your code</h2>
+      <div ui-ace="aceOpts" ng-model="code" ng-readonly="!coder"></div>
 
-<section>
-  <div ui-ace="aceOpts" ng-model="code2" ng-readonly="coder"></div>
-</section>
-<a href="" ng-click="execute1()">Execute Interviewer</a>
-<a href="" ng-click="execute2()">Execute Candidate</a>
+      <h2>{{coder ? 'Interviewer' : 'Interviewee'}}'s code</h2>
+      <section>
+        <div ui-ace="aceOpts" ng-model="code2" ng-readonly="coder"></div>
+      </section>
+    </div>
+  </div>
+</div>
