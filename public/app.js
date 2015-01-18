@@ -23,7 +23,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   $urlRouterProvider.otherwise('/');
 })
 
-.controller('HomeCtrl', function($scope) {
+.controller('HomeCtrl', function($scope, $http) {
   $scope.test = 'asdf';
   // Closes the sidebar menu
   $("#menu-close").click(function(hi) {
@@ -100,6 +100,26 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     }
 
   });
+
+  $http.get('/api/user').then(function(res) {
+    $scope.user = res.data;
+  });
+
+  $scope.login = function() {
+    $http.post('/api/logreg', {
+      name: $scope.username,
+      password: $scope.password
+    }).then(function(res) {
+      $scope.user = {
+        name: 'me@ian.pw',
+        password: 'asfkljadg'
+      };
+      console.log(res);
+      if (res) {
+      }
+    });
+  };
+
 })
 
 .controller('FindCtrl', function($scope, $stateParams) {

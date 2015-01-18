@@ -22,18 +22,18 @@
   <hr id="sidebarhr" />
 
   <div ng-if="user">
-    <p>Welcome, {{user.name}}</p>
+    <p style="color: white">Welcome, {{user.name}}</p>
   </div>
   <div ng-if="!user">
-    <form id="validatedForm" class="navbar-form">
+    <form id="validatedForm" class="navbar-form" ng-submit="login()">
 
       <div class="form-group">
-        <input id="username" type="email" placeholder="Email" class="form-control" />
+        <input id="username" type="email" placeholder="Email" class="form-control" ng-model="username" />
         <div id="erroremail"></div>
       </div>
 
       <div class="form-group">
-        <input id="password" type="password" placeholder="Password" class="form-control" />
+        <input id="password" type="password" placeholder="Password" class="form-control" ng-model="password" />
         <div id="errorpassword"></div>
         <br/>
       </div>

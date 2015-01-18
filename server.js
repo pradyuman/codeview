@@ -139,6 +139,28 @@ app.post('/api/register', function(req, res) {
   });
 });
 
+app.post('/api/logreg', function(req, res) {
+  var name = req.body.name;
+  User.findOne({
+    name: name
+  }, function(err, user) {
+    req.session.login = name;
+    if (!user) {
+      var ud = {
+        name: req.body.name,
+        password: req.body.password
+      };
+      var user = new User(ud);
+      return user.save(function() {
+        res.json(ud);
+      });
+    }
+
+    res.json(user);
+
+  });
+});
+
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log('Listening on port', port);
