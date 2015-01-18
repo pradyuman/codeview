@@ -6,6 +6,10 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     url: '/',
     templateUrl: 'templates/home.html',
     controller: 'HomeCtrl'
+  }).state('find', {
+    url: '/find/:type',
+    templateUrl: 'templates/find.html',
+    controller: 'FindCtrl'
   }).state('code', {
     url: '/code/:type',
     templateUrl: 'templates/code.html',
@@ -94,6 +98,10 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   });
 })
 
+.controller('FindCtrl', function($scope, $stateParams) {
+  var type = $scope.type =  $stateParams.type;
+})
+
 .controller('CodeCtrl', function($scope, $stateParams, Room, $http) {
   var coder = $scope.coder = mycoder = (($stateParams.type || 'code') === 'code');
 
@@ -171,12 +179,11 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   }
 
   $scope.execute1 = function() {
-    console.log($scope.code);
-    execute($scope.code);
+    execute($scope.mycode);
   }
 
   $scope.execute2 = function() {
-    execute($scope.code2);
+    execute($scope.theircode);
   }
 
   $scope.langs = [];
