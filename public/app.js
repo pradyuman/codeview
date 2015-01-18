@@ -237,6 +237,10 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     window.open("/moxtra/", "Voice Call", "width=600, height=500");
   }
 
+  $scope.saved = function() {
+    alert('Rating saved. Click a different rating to update it!');
+  };
+
   $scope.clear = function() {
     $scope.data = {
       lang: $scope.data.lang
