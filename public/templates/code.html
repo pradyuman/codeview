@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col-md-2">
       <h3>Language</h3>
-      <select class="form-control" ng-model="data.lang" ng-options="lang.name for lang in langs track by lang.id">
+      <select class="form-control" ng-model="data.lang" ng-options="lang.name for lang in langs track by lang.id" ng-change="updateLang()">
         <option value="">Select a language</option>
       </select>
 

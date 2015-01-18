@@ -50,22 +50,30 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 .controller('CodeCtrl', function($scope, $stateParams, Room, $http) {
   var coder = $scope.coder = mycoder = (($stateParams.type || 'code') === 'code');
 
-  $scope.langace = 'javascript';
+  var aces = [];
 
   $scope.aceOpts = {
     theme: 'monokai',
-    mode: 'javascript',
     rendererOptions: {
       fontSize: 13
     },
-    onLoad: function(e) {
-      e.$blockScrolling = Infinity;
+    onLoad: function(ace) {
+      ace.$blockScrolling = Infinity;
+      aces.push(ace);
     }
   };
 
-  $scope.$watch('data', function() {
-    $scope.aceOpts.mode = $scope.data.lang.split('/')[0];
-  });
+  $scope.updateLang = function() {
+    try {
+      var mode = $scope.data.lang.id.split('/')[0];
+      for (var i = 0; i < aces.length; i++) {
+        var ace = aces[i];
+        ace.getSession().setMode('ace/mode/' + mode.toLowerCase());
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   $scope.code = '// Enter code here \n';
   $scope.code2 = '// Interviewer comments\n';
@@ -75,6 +83,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     $scope.data = room;
     $scope.code = room.code;
     $scope.code2 = room.code2;
+    $scope.updateLang();
   });
   room.$bindTo($scope, 'data');
 
