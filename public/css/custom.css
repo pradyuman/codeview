@@ -31,6 +31,25 @@ body {
 
 /* Custom Button Styles */
 
+.btn-info {
+	border-radius:0;
+}
+
+#beInt {
+	position:relative;
+	left:-3px;
+}
+
+#beBoth {
+	position:relative;
+	left:2px;
+}
+
+#beLearn {
+	position:relative;
+	left: 5px;
+}
+
 .btn-dark {
     border-radius: 0;
     color: #fff;
@@ -219,8 +238,4 @@ footer {
 
 .marginLeft {
 	margin-left:5px;
-}
-
-.btn-info {
-	border-radius:0;
 }
