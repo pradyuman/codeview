@@ -64,7 +64,7 @@ body {
 .btn-dark:focus,
 .btn-dark:active {
     color: #fff;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(66, 255, 35, 1);
 }
 
 .btn-light {
@@ -213,7 +213,7 @@ hr.small {
     position: relative;
     width: 100%;
 	height: 100vh;
-    background: url(../images/bg.jpg) no-repeat center center scroll;
+    background: url(../images/green.jpg) no-repeat center center scroll;
     webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -275,21 +275,11 @@ footer {
 }
 
 .fontBig {
-	font-size:150%;
+	font-size:150%;	
 }
 
 
 .aceasdfbox {
     height: 75vh;
     overflow: none;
-}
-
-.col-md-5{
-    padding: 0;
-}
-.homeButtons {
-  -webkit-animation-duration: 2s;
-  -moz-animation-duration: 2s;
-  -o-animation-duration: 2s;
-  animation-duration: 2s;
 }
