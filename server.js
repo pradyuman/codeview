@@ -62,6 +62,9 @@ app.get('/api/leaderboard', function(req, res) {
     name: 'simplyianm',
     elo: 1720
   }, {
+    name: 'Scyphi',
+    elo: 2300
+  }, {
     name: 'sorbetman',
     elo: 1550
   }, {
