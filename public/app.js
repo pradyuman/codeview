@@ -63,6 +63,10 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     }
   };
 
+  $scope.$watch('data', function() {
+    $scope.aceOpts.mode = $scope.data.lang.split('/')[0];
+  });
+
   $scope.code = '// Enter code here \n';
   $scope.code2 = '// Interviewer comments\n';
   $scope.data = {};
