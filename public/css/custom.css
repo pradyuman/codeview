@@ -94,13 +94,13 @@ hr.small {
 
 #username {
 	margin-bottom:5px;
-	width:230px;
+	width:225px;
 	border-radius:0;
 }
 
 #password {
 	margin-bottom:5px;
-	width:230px;
+	width:225px;
 	border-radius:0;
 }
 
@@ -115,6 +115,7 @@ hr.small {
 #loginbutton {
 	position:relative;
 	top:-10px;
+	left:5px;
 	margin-left:60px;
 }
 
