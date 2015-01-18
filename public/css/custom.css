@@ -276,7 +276,11 @@ footer {
 }
 
 .fontBig {
-	font-size:150%;
+	font-size:150%;	
+}
+
+.navbar-inner {
+	background:transparent;
 }
 
 .aceasdfbox {
