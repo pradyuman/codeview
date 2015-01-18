@@ -237,6 +237,14 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     window.open("/moxtra/", "Voice Call", "width=600, height=500");
   }
 
+  $scope.clear = function() {
+    $scope.data = {
+      lang: $scope.data.lang
+    };
+    $scope.mycode = '';
+    $scope.theircode = '';
+  };
+
   $scope.langs = [];
   $http.get('/langs').then(function(data) {
     $scope.langs = data.data;
