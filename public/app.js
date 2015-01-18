@@ -62,11 +62,13 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   };
 
   $scope.code = '// Enter code here \n';
+  $scope.code2 = '// Interviewer comments\n';
   $scope.data = {};
   var room = Room('test');
   room.$loaded().then(function() {
     $scope.data = room;
     $scope.code = room.code;
+    $scope.code2 = room.code2;
   });
   room.$bindTo($scope, 'data');
 
@@ -77,10 +79,16 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
         $scope.data.code = $scope.code;
       }
     });
+    $scope.$watch('code2', function() {
+      if ($scope.code2) {
+        $scope.data.code2 = $scope.code2;
+      }
+    });
   } else {
     // Only read code
     $scope.$watch('data', function() {
       $scope.code = $scope.data.code;
+      $scope.code2 = $scope.data.code2;
     });
   }
 
