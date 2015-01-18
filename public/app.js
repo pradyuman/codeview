@@ -119,6 +119,17 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     }
   };
 
+  $scope.aceCons = {
+    theme: 'ambiance',
+    useWrapMode: true,
+    rendererOptions: {
+      fontSize: 13
+    },
+    onLoad: function(ace) {
+      ace.$blockScrolling = Infinity;
+    }
+  };
+
   $scope.updateLang = function() {
     try {
       var mode = $scope.data.lang.id.split('/')[0];
@@ -165,25 +176,37 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     });
   }
 
-  execute = function(code) {
+  execute = function(code, person) {
+    if(person)
+      $scope.myoutput = 'Running program...';
+    else
+      $scope.theiroutput = 'Running program';
     $http.post('/execute', {
       code: code,
       lang: $scope.data.lang.id
     }).
     success(function(data, status, headers, config) {
+      var output = "";
+      if(data.error)
+        output = data.error;
+      else output = data.output+"\n"+data.status;
       console.log(data);
+    if(person)
+      $scope.myoutput = output;
+    else
+      $scope.theiroutput = output;
     }).
     error(function(data, status, headers, config) {
-      console.log(data);
+      alert("Failed to execute code");
     });
   }
 
   $scope.execute1 = function() {
-    execute($scope.mycode);
+    execute($scope.mycode, true);
   }
 
   $scope.execute2 = function() {
-    execute($scope.theircode);
+    execute($scope.theircode, false);
   }
   $scope.startmoxtra = function() {
     window.open("/moxtra/", "Voice Call", "width=600, height=500");
