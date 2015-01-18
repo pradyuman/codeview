@@ -55,13 +55,13 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 
 	event.preventDefault();
 
-	if (!isValidEmailAddress($("#email").val())) {
+	/*if (!isValidEmailAddress($("#email").val())) {
 		
 		$("#erroremail").html("The email address provided is invalid");
 		styleerror("#erroremail");
 		error = 1
 		
-	}
+	} */
 	
 	if (!isValidPassword($("#password").val())) {
 		
