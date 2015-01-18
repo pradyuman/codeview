@@ -51,7 +51,6 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   var coder = $scope.coder = mycoder = (($stateParams.type || 'code') === 'code');
 
   $scope.langace = 'javascript';
-  $scope.langeval = 'javascript/node-0.10.29';
 
   $scope.aceOpts = {
     theme: 'monokai',
@@ -97,10 +96,10 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     });
   }
 
-  execute = function(code, lang) {
+  execute = function(code) {
     $http.post('/execute', {
       code: code,
-      lang: lang
+      lang: $scope.selectedLang.id
     }).
     success(function(data, status, headers, config) {
       console.log(data);
@@ -112,12 +111,11 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 
   $scope.execute1 = function() {
     console.log($scope.code);
-    execute($scope.code, $scope.langeval);
+    execute($scope.code);
   }
 
   $scope.execute2 = function() {
-    console.log($scope.code2);
-    execute($scope.code, $scope.langeval);
+    execute($scope.code2);
   }
 
   $scope.langs = [];
