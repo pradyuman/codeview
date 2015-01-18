@@ -4,7 +4,7 @@
   <div ui-ace="aceOpts" ng-model="code" ng-readonly="!coder"></div>
 </section>
 
-<select ng-model="selectedLang" ng-options="lang.name for lang in langs track by lang.id">
+<select ng-model="data.lang" ng-options="lang.name for lang in langs track by lang.id">
   <option value="">Select a language</option>
 </select>
 

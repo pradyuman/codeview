@@ -99,7 +99,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   execute = function(code) {
     $http.post('/execute', {
       code: code,
-      lang: $scope.selectedLang.id
+      lang: $scope.data.lang.id
     }).
     success(function(data, status, headers, config) {
       console.log(data);
