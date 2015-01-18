@@ -88,6 +88,11 @@ hr.small {
 
 /* Side Menu */
 
+#login {
+	width:240px;
+	margin-top:400px;
+}
+
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
