@@ -15,13 +15,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
-      <h3>Language</h3>
+      <h3>Settings</h3>
       <select class="form-control" ng-model="data.lang" ng-options="lang.name for lang in langs track by lang.id" ng-change="updateLang()">
         <option value="">Select a language</option>
       </select>
-
-      <a href="" class="btn btn-primary" ng-click="execute1()">Run Your Code</a>
+      <br/>
+      <a href="" class="btn btn-info" ng-click="execute1()">Run Your Code</a>
+      <br/>
+      <br/>
       <a href="" class="btn btn-primary" ng-click="execute2()">Run Candidate's Code</a>
+      <br/>
+      <br/>
+      <a href="" class="btn btn-success" ng-click="startmoxtra()">Start Conference Call</a>
     </div>
 
     <div class="col-md-5">
