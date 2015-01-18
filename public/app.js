@@ -171,12 +171,14 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   }
 
   $scope.execute1 = function() {
-    console.log($scope.code);
     execute($scope.code);
   }
 
   $scope.execute2 = function() {
     execute($scope.code2);
+  }
+  $scope.startmoxtra = function() {
+    window.open("/moxtra/", "Voice Call", "width=600, height=500");
   }
 
   $scope.langs = [];
