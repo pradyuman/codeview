@@ -54,6 +54,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 
   $scope.aceOpts = {
     theme: 'monokai',
+    useWrapMode: true,
     rendererOptions: {
       fontSize: 13
     },
