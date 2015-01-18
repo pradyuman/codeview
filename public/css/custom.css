@@ -88,8 +88,12 @@ hr.small {
 
 /* Side Menu */
 
+#sidebarhr {
+	margin-top:230px;
+}
+
 #validatedForm {
-	margin-top:250px;
+	margin-top:10px;
 }
 
 #username {
@@ -115,7 +119,7 @@ hr.small {
 #loginbutton {
 	position:relative;
 	top:-10px;
-	left:15px;
+	left:20px;
 	margin-left:60px;
 }
 
@@ -264,7 +268,6 @@ footer {
 
 /* Extra styles */
 .ace_editor {
-  height: 200px;
 }
 
 .marginLeft {
@@ -273,4 +276,10 @@ footer {
 
 .fontBig {
 	font-size:150%;	
+}
+
+
+.aceasdfbox {
+    height: 75vh;
+    overflow: none;
 }
