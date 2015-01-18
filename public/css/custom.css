@@ -88,6 +88,10 @@ hr.small {
 
 /* Side Menu */
 
+#sidebarhr {
+	margin-top:250px;
+}
+
 #validatedForm {
 	margin-top:250px;
 }
