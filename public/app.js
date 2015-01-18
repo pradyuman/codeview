@@ -67,9 +67,9 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 		
 		$("#errorpassword").html("The password provided is invalid");
 		styleerror("#errorpassword");
-		error = 1*/
+		error = 1
 		
-	}
+	}*/
 
 	if (error != 1) {
 		
