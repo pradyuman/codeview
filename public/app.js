@@ -63,11 +63,11 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 		
 	} */
 	
-	if (!isValidPassword($("#password").val())) {
+	/*if (!isValidPassword($("#password").val())) {
 		
 		$("#errorpassword").html("The password provided is invalid");
 		styleerror("#errorpassword");
-		error = 1
+		error = 1*/
 		
 	}
 
