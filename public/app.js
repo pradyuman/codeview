@@ -99,7 +99,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 })
 
 .controller('FindCtrl', function($scope, $stateParams) {
-  var type = $scope.type =  $stateParams.type;
+  var type = $scope.type = $stateParams.type;
 })
 
 .controller('CodeCtrl', function($scope, $stateParams, Room, $http) {
@@ -142,14 +142,15 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     }
   };
 
-  $scope.code = '// Enter code here \n';
-  $scope.code2 = '// Interviewer comments\n';
+  $scope.mycode = '// Enter your code here.';
+  $scope.theircode = '// Enter your code here.';
+
   $scope.data = {};
   var room = Room('test');
   room.$loaded().then(function() {
     $scope.data = room;
-    $scope.code = room.code;
-    $scope.code2 = room.code2;
+    $scope.mycode = coder ? room.code : room.code2;
+    $scope.theircode = coder ? room.code2 : room.code;
     $scope.updateLang();
   });
   room.$bindTo($scope, 'data');
@@ -177,7 +178,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   }
 
   execute = function(code, person) {
-    if(person)
+    if (person)
       $scope.myoutput = 'Running program...';
     else
       $scope.theiroutput = 'Running program';
@@ -187,14 +188,14 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     }).
     success(function(data, status, headers, config) {
       var output = "";
-      if(data.error)
+      if (data.error)
         output = data.error;
-      else output = data.output+"\n"+data.status;
+      else output = data.output + "\n" + data.status;
       console.log(data);
-    if(person)
-      $scope.myoutput = output;
-    else
-      $scope.theiroutput = output;
+      if (person)
+        $scope.myoutput = output;
+      else
+        $scope.theiroutput = output;
     }).
     error(function(data, status, headers, config) {
       alert("Failed to execute code");
