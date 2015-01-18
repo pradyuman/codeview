@@ -248,7 +248,6 @@ hr.small {
 /* Footer */
 
 footer {
-	font-size:150%;
     padding: 100px 0;
 }
 
@@ -259,4 +258,8 @@ footer {
 
 .marginLeft {
 	margin-left:5px;
+}
+
+.fontBig {
+	font-size:150%;	
 }
