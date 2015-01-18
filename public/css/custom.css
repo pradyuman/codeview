@@ -88,6 +88,24 @@ hr.small {
 
 /* Side Menu */
 
+#login {
+	width:240px;
+	margin-top:250px;
+	border-radius:0;
+}
+
+#username {
+	margin-bottom:5px;
+}
+
+#password {
+	margin-bottom:5px;
+}
+
+#loginbutton {
+	margin-left: 100px;
+}
+
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
