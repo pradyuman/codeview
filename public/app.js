@@ -98,7 +98,10 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   }
 
   execute = function(code, lang) {
-    $http.post('/execute', {code:code, lang:lang, }).
+    $http.post('/execute', {
+      code: code,
+      lang: lang,
+    }).
     success(function(data, status, headers, config) {
       console.log(data);
     }).
@@ -129,4 +132,3 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     return $firebase(ref).$asObject();
   }
 });
-
