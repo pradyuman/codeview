@@ -275,11 +275,18 @@ footer {
 }
 
 .fontBig {
-	font-size:150%;	
+	font-size:150%;
 }
 
 
 .aceasdfbox {
     height: 75vh;
     overflow: none;
+}
+
+.homeButtons {
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
 }
