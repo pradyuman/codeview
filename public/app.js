@@ -158,7 +158,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   if (coder) {
     // Edit code only
     $scope.$watch('mycode', function() {
-      if ($scope.code) {
+      if ($scope.mycode) {
         $scope.data.code = $scope.mycode;
       }
     });
@@ -168,7 +168,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   } else {
     // Edit code 2 only
     $scope.$watch('mycode', function() {
-      if ($scope.code2) {
+      if ($scope.mycode) {
         $scope.data.code2 = $scope.mycode;
       }
     });
