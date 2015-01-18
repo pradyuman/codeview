@@ -48,7 +48,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 })
 
 .controller('CodeCtrl', function($scope, $stateParams, Room) {
-  var coder = $scope.coder = ($stateParams.type || 'code') === 'code';
+  var coder = $scope.coder = (($stateParams.type || 'code') === 'code');
 
   $scope.aceOpts = {
     theme: 'monokai',
@@ -71,14 +71,16 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   room.$bindTo($scope, 'data');
 
   if (coder) {
+    // Only read code
+    $scope.$watch('data', function() {
+      $scope.code = $scope.data.code;
+    });
+  } else {
+    // Allow editing code
     $scope.$watch('code', function() {
       if ($scope.code) {
         $scope.data.code = $scope.code;
       }
-    });
-  } else {
-    $scope.$watch('data', function() {
-      $scope.code = $scope.data.code;
     });
   }
 
