@@ -64,37 +64,48 @@ app.get('/langs', function(req, res) {
 app.get('/api/leaderboard', function(req, res) {
   res.json([{
     name: 'dandiferr',
-    elo: 2520
+    elo: 2520,
+    rating: 19
   }, {
     name: 'wyndwarrior',
-    elo: 2339
+    elo: 2339,
+    rating: -39
   }, {
     name: 'aahanemia',
-    elo: 1859
+    elo: 1859,
+    rating: 100
   }, {
     name: 'sindresorhus',
-    elo: 1193
+    elo: 1193,
+    rating: 28
   }, {
     name: 'tj',
-    elo: 1530
+    elo: 1530,
+    rating: 23
   }, {
     name: 'xX_4sun4_Xx',
-    elo: 1930
+    elo: 1930,
+    rating: 23
   }, {
     name: 'amandatru',
-    elo: 865
+    elo: 865,
+    rating: -3
   }, {
     name: 'simplyianm',
-    elo: 1720
+    elo: 1720,
+    rating: 9
   }, {
     name: 'Scyphi',
-    elo: 2300
+    elo: 2300,
+    rating: 7
   }, {
     name: 'sorbetman',
-    elo: 1550
+    elo: 1550,
+    rating: 4
   }, {
     name: 'tejasmanohar',
-    elo: 1440
+    elo: 1440,
+    rating: 1
   }, ]);
 });
 
