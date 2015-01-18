@@ -7,7 +7,7 @@ function randStr(){
 	return str;
 }
 
-var fb = new Firebase("https://resplendent-torch-635.firebaseio.com/moxtra");
+var fb = new Firebase("https://codeview1.firebaseio.com/moxtra");
 
 var client_id = "r0QI6GjJbaI";
 var client_secret = "kRKfGYmyDR0";
