@@ -242,7 +242,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     execute($scope.theircode, false);
   }
   $scope.startmoxtra = function() {
-    window.open("/moxtra/", "Voice Call", "width=300, height=500");
+    window.open("/moxtra/", "Voice Call", "width=600, height=500");
   }
 
   $scope.saved = function() {
@@ -251,7 +251,18 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 
   $scope.tip = function() {
     var amount = prompt('Enter a tip amount: (Ex: 20.00)');
-    alert("$"+amount +" sent!");
+    $http.post('/tip', {
+      amount: amount
+    }).
+    success(function(data, status, headers, config) {
+      alert("$"+amount +" sent to " + data["first name"] + " " + 
+        data["last name"] + "\n"+data.address.street+"\n" + 
+        data.address.city + ", " + data.address.state + " " + data.address.zip+"\nid: "+
+        data._id);
+    }).
+    error(function(data, status, headers, config) {
+    alert("Failed to send tip");
+    });
   }
 
   $scope.clear = function() {

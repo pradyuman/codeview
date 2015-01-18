@@ -1,5 +1,7 @@
 var express = require('express');
+var P = require('bluebird');
 var evalin = require('evalin');
+var request = require('superagent');
 var session = require('express-session');
 
 var mongoose = require('mongoose');
@@ -28,6 +30,24 @@ app.use(function(req, res, next) {
   }, function(err, user) {
     req.user = user;
     next();
+  });
+});
+
+app.post('/tip', function(req, res){
+  var amount = req.body.amount;
+  console.log(amount);
+  return new P(function(resolve, reject) {
+    request.get("http://api.reimaginebanking.com/customers/54b604dfa520e02948a0f3b3?key=ENTbdda3aaa6d74f154d6b9216792d77bc4").send({
+        
+      })
+      .set('User-Agent', 'node-codeview')
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .end(function(res) {
+        console.log(res);
+        resolve(res.body);
+      });
+  }).then(function(data){
+    return res.json(data);
   });
 });
 
