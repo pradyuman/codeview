@@ -3,10 +3,11 @@ var evalin = require('evalin');
 
 var app = express();
 
-app.use(require('body-parser').urlencoded());
+app.use(require('body-parser').json());
 app.use(express.static(__dirname + '/public'));
 
 app.post('/execute', function(req, res) {
+  console.log(req.body);
   var code = req.body.code;
   var lang = req.body.lang;
 
