@@ -27,6 +27,18 @@
       <br/>
       <br/>
       <a href="/moxtra" class="btn btn-success" target="_blank">Start Conference Call</a>
+
+      <div ng-if="!coder">
+        <h3>Rate</h3>
+        <button class="btn btn-success">Good</button>
+        <button class="btn btn-warning">OK</button>
+        <button class="btn btn-danger">Bad</button>
+      </div>
+
+      <div ng-if="coder">
+        <h3>Send a tip</h3>
+        <p>Thank your interviewer for their time by sending them a tip, powered by CapitalOne!</p>
+      </div>
     </div>
 
     <div id="yourcode" class="col-md-5">
@@ -42,17 +54,18 @@
   </div>
 </div>
 <footer class="footer fixedfoot">
-	<div class="col-md-2">
-        <br/><br/>
-      <a href="" class="btn btn-danger" ng-click="closeConsole()">Close Console</a>
-    </div>
-    <div class="col-md-5">
-      <div ui-ace="aceCons" class="console" ng-model="myoutput" readonly>Program output</div>
-    </div>
-    <div class="col-md-5">
-      <div ui-ace="aceCons" class="console" ng-model="theiroutput" readonly>Program output</div>
-    </div>
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-      </div>
-    </footer>
+  <div class="col-md-2">
+    <br/>
+    <br/>
+    <a href="" class="btn btn-danger" ng-click="closeConsole()">Close Console</a>
+  </div>
+  <div class="col-md-5">
+    <div ui-ace="aceCons" class="console" ng-model="myoutput" readonly>Program output</div>
+  </div>
+  <div class="col-md-5">
+    <div ui-ace="aceCons" class="console" ng-model="theiroutput" readonly>Program output</div>
+  </div>
+  <div class="container">
+    <p class="text-muted">Place sticky footer content here.</p>
+  </div>
+</footer>
