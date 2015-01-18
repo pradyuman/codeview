@@ -48,7 +48,7 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
 })
 
 .controller('CodeCtrl', function($scope, $stateParams, Room) {
-  var coder = ($stateParams.type || 'code') === 'code';
+  var coder = $scope.coder = ($stateParams.type || 'code') === 'code';
 
   $scope.aceOpts = {
     theme: 'monokai',
