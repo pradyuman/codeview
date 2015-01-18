@@ -1,0 +1,25 @@
+<div ng-include="'templates/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="page-header">Leaderboard</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>ELO Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="leader in leaders | orderBy:'-elo'">
+            <td>{{$index + 1}}</td>
+            <td>{{leader.name}}</td>
+            <td>{{leader.elo}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

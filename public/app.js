@@ -14,6 +14,10 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
     url: '/code/:type',
     templateUrl: 'templates/code.html',
     controller: 'CodeCtrl'
+  }).state('leaderboard', {
+    url: '/leaderboard',
+    templateUrl: 'templates/leaderboard.html',
+    controller: 'LeaderboardCtrl'
   });
 
   $urlRouterProvider.otherwise('/');
@@ -216,6 +220,14 @@ angular.module('codeview', ['ui.router', 'firebase', 'ui.ace'])
   $scope.langs = [];
   $http.get('/langs').then(function(data) {
     $scope.langs = data.data;
+  });
+})
+
+.controller('LeaderboardCtrl', function($scope, $http) {
+  $scope.leaders = [];
+  $http.get('/api/leaderboard').then(function(res) {
+    var data = res.data;
+    $scope.leaders = data;
   });
 })
 

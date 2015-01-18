@@ -36,6 +36,40 @@ app.get('/langs', function(req, res) {
   res.json(evalin.langs);
 });
 
+app.get('/api/leaderboard', function(req, res) {
+  res.json([{
+    name: 'dandiferr',
+    elo: 2520
+  }, {
+    name: 'wyndwarrior',
+    elo: 2339
+  }, {
+    name: 'aahanemia',
+    elo: 1859
+  }, {
+    name: 'sindresorhus',
+    elo: 1193
+  }, {
+    name: 'tj',
+    elo: 1530
+  }, {
+    name: 'xX_4sun4_Xx',
+    elo: 1930
+  }, {
+    name: 'amandatru',
+    elo: 865
+  }, {
+    name: 'simplyianm',
+    elo: 1720
+  }, {
+    name: 'sorbetman',
+    elo: 1550
+  }, {
+    name: 'tejasmanohar',
+    elo: 1440
+  }, ]);
+});
+
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log('Listening on port', port);
