@@ -119,8 +119,15 @@ hr.small {
 #loginbutton {
 	position:relative;
 	top:-10px;
-	left:20px;
-	margin-left:60px;
+	left:10px;
+	margin-left:25px;
+}
+
+#loginbuttoncode {
+	position:relative;
+	top:-44px;
+	left:0px;
+	margin-left:130px;
 }
 
 #sidebar-wrapper {
@@ -308,4 +315,8 @@ footer {
 
 .console {
     height: 20vh;
+}
+
+.bigFont {
+	font-size:150%;
 }

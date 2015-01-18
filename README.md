@@ -3,11 +3,11 @@ codeview
 
 Crowdsourced coding interview practice and preparation <br />
 Contributors:
- - Aahan Sawhney <br />
- - Amanda Truong <br />
- - Andrew Liu <br />
- - Ian Macalino <br />
- - Pradyuman Vig <br />
+* Aahan Sawhney
+* Amanda Truong
+* Andrew Liu
+* Ian Macalinao
+* Pradyuman Vig
 
 ## Installing
 
