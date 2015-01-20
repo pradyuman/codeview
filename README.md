@@ -1,7 +1,8 @@
 codeview
 ===============
 
-Crowdsourced coding interview practice and preparation <br />
+Crowdsourced coding interview practice and preparation.
+
 Contributors:
 * Aahan Sawhney
 * Amanda Truong
