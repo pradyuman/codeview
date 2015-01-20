@@ -1,7 +1,17 @@
 codeview
 ===============
 
-Crowdsourced coding interview practice and preparation.
+Gamified technical interview practice and preparation.
+
+Current features:
+  -In-browser code editor
+  -Two column interface, one that displays coder's code and one that displays interviewer's code.
+  -Real-time code update (when coder types, interviewer immediately sees the changes and vice versa
+  -VoIP and chat via Moxtra (thanks Moxtra!)
+  
+Features that are incomplete:
+  -Global leaderboard
+  -Some features related to gamification
 
 Contributors:
 * Aahan Sawhney
